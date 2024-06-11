@@ -6,8 +6,8 @@ static const unsigned int gappx     = 0;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "mononoki Nerd Font:size=10" };
-static const char dmenufont[]       = "mononoki Nerd Font:size=10";
+static const char *fonts[]          = { "mononoki Nerd Font:size=12" };
+static const char dmenufont[]       = "mononoki Nerd Font:size=12";
 static const char col_gray1[]       = "#0f0f0f";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#FFFFFF";
@@ -27,7 +27,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1:", "2:", "3:", "4:", "5:" };
+static const char *tags[] = { "1:", "2:", "3:", "4:", "5:" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -65,12 +65,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
-static const char *dmenucmd[] = { "rofi",  "-i", "-show", "drun", "-modi", "drun", "-show-icons", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+// static const char *dmenucmd[] = { "rofi",  "-i", "-show", "drun", "-modi", "drun", "-show-icons", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *web1[] = { "firefox-esr", NULL};
-static const char *web2[] = { "vivaldi-stable", NULL};
-static const char *fileman[] = { "thunar", NULL };
+static const char *web1[] = { "/home/jibran/Downloads/midori/midori", NULL};
+static const char *web2[] = { "vivaldi", NULL};
+static const char *fileman[] = { "pcmanfm", NULL };
 static const char *emacsclient[] = { "emacsclient", "-c", "-a", "emacs", NULL };
 static const char *vid[] = { "qvidcap", NULL };
 static const char *screenshot[] = { "flameshot", "gui", NULL};
