@@ -50,7 +50,7 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+b exec vivaldi
 
 # start file_manager
-bindsym $mod+p exec nemo
+bindsym $mod+p exec thunar
 
 #start doom_emacs
 bindsym $mod+Shift+e exec emacsclient -c -a "emacs"
@@ -161,11 +161,11 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # workspace specific startups
-assign [class="Firefox-esr"] $ws1
+assign [class="firefox"] $ws1
 assign [class="Vivaldi-stable"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="Emacs"] $ws3
-assign [class="Nemo"] $ws4
+assign [class="Thunar"] $ws4
 
 
 # reload the configuration file
@@ -345,9 +345,9 @@ client.background       #F8F8F2
 # finds out, if available)
 bar {
         status_command i3status -c /home/jibran/.config/i3/i3status.conf
-        position top
+        position bottom
         i3bar_command i3bar --transparency
-        tray_output none
+        tray_output primary
 colors {
         background #282828
         statusline #FBF0C9
@@ -363,8 +363,9 @@ colors {
 
 # Autostart
 exec --no-startup-id picom --config /home/jibran/.config/picom/picom.conf
-exec --no-startup-id feh --randomize --bg-fill /home/jibran/Pictures/
+exec --no-startup-id feh --randomize --bg-fill /home/jibran/Pictures/nixos-wallpapers/
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id emacs --daemon
 exec --no-startup-id xset r rate 300 50
 exec --no-startup-id numlockx
+exec --no-startup-id nm-applet
