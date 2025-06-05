@@ -44,16 +44,16 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec alacritty
 
 # start firefox
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec chromium
 
 # start vivaldi
-bindsym $mod+Shift+b exec vivaldi
+# bindsym $mod+Shift+b exec vivaldi
 
 # start file_manager
 bindsym $mod+p exec thunar
 
 #start doom_emacs
-bindsym $mod+Shift+e exec emacsclient -c -a "emacs"
+# bindsym $mod+Shift+e exec emacsclient -c -a "emacs"
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -62,7 +62,7 @@ bindsym $mod+Shift+c kill
 # bindsym $mod+Shift+p exec --no-startup-id dmenu_run
 
 # rofi
-bindsym $mod+Shift+p exec rofi -show run
+bindsym $mod+Shift+p exec rofi -show drun
 
 # Manually locking your screen
 bindsym $mod+Control+l exec i3lock
@@ -125,16 +125,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1: Web"
+set $ws2 "2: Term"
+set $ws3 "3: Fold"
+set $ws4 "4: File"
+set $ws5 "5: Music"
+set $ws6 "6: Down"
+set $ws7 "7: Video"
+set $ws8 "8: extra"
+set $ws9 "9: extra"
+set $ws10 "10: extra"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -161,11 +161,11 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # workspace specific startups
-assign [class="firefox"] $ws1
-assign [class="Vivaldi-stable"] $ws1
+assign [class="Chromium"] $ws1
+# assign [class="Vivaldi-stable"] $ws1
 assign [class="Alacritty"] $ws2
-assign [class="Emacs"] $ws3
-assign [class="Thunar"] $ws4
+# assign [class="Emacs"] $ws3
+assign [class="Thunar"] $ws3
 
 
 # reload the configuration file
@@ -328,8 +328,8 @@ mode "$mode_gaps_left" {
 # Border Pixel
 for_window [class=".*"] border pixel 1
 
-# gaps inner 6
-# gaps outer 10
+gaps inner 10
+gaps outer 5
 
 # borders
 
@@ -344,28 +344,30 @@ client.background       #F8F8F2
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status -c /home/jibran/.config/i3/i3status.conf
-        position bottom
+        # status_command i3status -c /home/unilap/.config/i3/i3status.conf
+        status_command i3blocks
+        position top
         i3bar_command i3bar --transparency
         tray_output primary
-colors {
-        background #282828
-        statusline #FBF0C9
-        separator  #44475A
 
-        focused_workspace  #C6BDA0 #C6BDA0 #282828
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282828 #282828 #C6BDA0
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
+        colors {
+            background #000000
+                # statusline #FFFFFF
+                separator  #666666
+
+                focused_workspace  #00FF00 #000000 #34eb9e
+                active_workspace   #333333 #222222 #FFFFFF
+                inactive_workspace #000000 #000000 #888888
+                urgent_workspace   #2F343A #900000 #FFFFFF
+                binding_mode       #2F343A #900000 #FFFFFF
+        }
 }
 
 # Autostart
-exec --no-startup-id picom --config /home/jibran/.config/picom/picom.conf
-exec --no-startup-id feh --randomize --bg-fill /home/jibran/Pictures/nixos-wallpapers/
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id emacs --daemon
+exec --no-startup-id picom --config /home/unilap/.config/picom/picom.conf
+exec --no-startup-id feh --randomize --bg-fill /home/unilap/Pictures/
+exec --no-startup-id /usr/libexec/xfce-polkit
+# exec --no-startup-id emacs --daemon
 exec --no-startup-id xset r rate 300 50
 exec --no-startup-id numlockx
 exec --no-startup-id nm-applet
