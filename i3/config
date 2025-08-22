@@ -44,13 +44,16 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec alacritty
 
 # start firefox
-bindsym $mod+Shift+f exec chromium
+bindsym $mod+Shift+f exec firefox
 
 # start vivaldi
-# bindsym $mod+Shift+b exec vivaldi
+bindsym $mod+Shift+b exec vivaldi
 
 # start file_manager
-bindsym $mod+p exec thunar
+bindsym $mod+p exec pcmanfm
+
+# start Obsidian
+bindsym $mod+Shift+n exec obsidian
 
 #start doom_emacs
 # bindsym $mod+Shift+e exec emacsclient -c -a "emacs"
@@ -160,12 +163,15 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# Jump between Present and Recent workspace
+bindsym $mod+Tab workspace back_and_forth
+
 # workspace specific startups
-assign [class="Chromium"] $ws1
-# assign [class="Vivaldi-stable"] $ws1
+assign [class="firefox"] $ws1
+assign [class="Vivaldi-stable"] $ws1
 assign [class="Alacritty"] $ws2
-# assign [class="Emacs"] $ws3
-assign [class="Thunar"] $ws3
+assign [class="Pcmanfm"] $ws3
+assign [class="obsidian"] $ws4
 
 
 # reload the configuration file
@@ -364,9 +370,9 @@ bar {
 }
 
 # Autostart
-exec --no-startup-id picom --config /home/unilap/.config/picom/picom.conf
-exec --no-startup-id feh --randomize --bg-fill /home/unilap/Pictures/
-exec --no-startup-id /usr/libexec/xfce-polkit
+exec --no-startup-id picom --config /home/jibran/.config/picom/picom.conf
+exec --no-startup-id feh --randomize --bg-fill /home/jibran/Pictures/
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 # exec --no-startup-id emacs --daemon
 exec --no-startup-id xset r rate 300 50
 exec --no-startup-id numlockx
